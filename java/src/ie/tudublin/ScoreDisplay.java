@@ -28,6 +28,12 @@ public class ScoreDisplay extends PApplet
 	public void loadScore() { //populating array list
 
 		String[] str = score.split("");
+		
+		for(String s : str) {
+
+			//println(s);
+
+		}
 
 		for(int i = 0; i < score.length(); i++) {
 
@@ -48,10 +54,31 @@ public class ScoreDisplay extends PApplet
 			
 			if(n.getDuration() == 1) {
 
+				println(n.getNote() + "\t" + n.getDuration() + "\t" + "Quaver");
+
+			} 
+
+			if (n.getDuration() == 2) {
+
+				println(n.getNote() + "\t" + n.getDuration() + "\t" + "Crotchet");
 			}
-			println(n);
 
 		}
+
+	}
+
+	float border = width * 0.9f ; 
+
+	public void drawStaveLines() {
+
+		stroke(0);
+		strokeWeight(2);
+		line(border, border, width - border, border);
+		line(border, border + 25, width - border, border + 25);
+		line(border, border + 50, width - border, border + 50);
+		line(border, border + 75, width - border, border + 75);
+		line(border, border + 100, width - border, border + 100);
+		
 
 	}
 
@@ -65,6 +92,8 @@ public class ScoreDisplay extends PApplet
 	public void draw()
 	{
 		background(255);
+		drawStaveLines();
+
 		
 	}
 
