@@ -1,8 +1,6 @@
 package ie.tudublin;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-
 
 import processing.core.PApplet;
 
@@ -31,11 +29,25 @@ public class ScoreDisplay extends PApplet
 
 			char c = score.charAt(i);
 			int cDuration = 1;
-
+			//int cPos = i;
 			Note n = new Note(c, cDuration);
+
+			// if(cPos + 1 != score.length()) {
+
+			// 	char cNext = score.charAt(cPos + 1);
+
+			// 	if(n.getNote() == 2 && Character.isDigit(cNext) == true) {
+
+			// 		cDuration = 2;
+	
+			// 	}
+
+			// }
+
 			notes.add(n);
 
 		}
+
 
 	}
 
@@ -95,6 +107,7 @@ public class ScoreDisplay extends PApplet
 	void drawNotes() {
 		
 		fill(0);
+		float extent = 20;
 		for(int i = 0; i < notes.size(); i++) {
 
 			float x = map(i, 0, notes.size(), (float)(border * 1.5), width - border);
@@ -102,13 +115,15 @@ public class ScoreDisplay extends PApplet
 
 
 			if(mouseX == x && mouseX < x + (width / 2)) { // filling in the colour of the notes
-				
+
 
 				fill(255, 0, 0);
+				stroke(255, 0, 0);
 			}
 
-			circle(x, height - y, 20);
-			//line(x, y + 200, x , y);
+			circle(x, height - y, extent * 2);
+			line(x + extent, height - y, x + extent, height - y - (extent * 6)); 
+			//line(x + extent, height - y - (extent * 6), x + extent , height - y - (extent * 5)); //dashes 
 
 
 		}
