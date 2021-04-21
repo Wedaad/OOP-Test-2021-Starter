@@ -11,7 +11,8 @@ public class ScoreDisplay extends PApplet
 	//String score = "D2E2F2G2A2B2c2d2";
 	//String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
 
-	//ArrayList
+	//array list to holds the instances of the note class
+	ArrayList<Note> notes = new ArrayList<Note>(); 
 	
 	public void settings()
 	{
