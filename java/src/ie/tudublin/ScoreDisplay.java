@@ -29,20 +29,24 @@ public class ScoreDisplay extends PApplet
 
 			char c = score.charAt(i);
 			int cDuration = 1;
-			//int cPos = i;
+			int cPos = i;
 			Note n = new Note(c, cDuration);
 
-			// if(cPos + 1 != score.length()) {
+			if(cPos + 1 != score.length()) { //trying to increment the duration of a length
 
-			// 	char cNext = score.charAt(cPos + 1);
+				char cNext = score.charAt(cPos + 1);
 
-			// 	if(n.getNote() == 2 && Character.isDigit(cNext) == true) {
+				if(Character.isDigit(cNext) == true) {
 
-			// 		cDuration = 2;
+					cDuration = 2;
 	
-			// 	}
+				}
+				else {
 
-			// }
+					cDuration = 1;
+				}
+
+			}
 
 			notes.add(n);
 
@@ -51,9 +55,11 @@ public class ScoreDisplay extends PApplet
 
 	}
 
-	public void printScore() {
+	public void printScore() { //method that prints out the note, the duration and the type
 
 		for(Note n : notes) {
+
+			//print(n);
 			
 			if(n.getDuration() == 1) {
 
@@ -123,7 +129,7 @@ public class ScoreDisplay extends PApplet
 
 			circle(x, height - y, extent * 2);
 			line(x + extent, height - y, x + extent, height - y - (extent * 6)); 
-			//line(x + extent, height - y - (extent * 6), x + extent , height - y - (extent * 5)); //dashes 
+			//line(x + extent, height - y - (extent * 5), x + extent , height - y - (extent * 5)); //dashes 
 
 
 		}
