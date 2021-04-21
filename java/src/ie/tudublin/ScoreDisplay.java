@@ -97,10 +97,18 @@ public class ScoreDisplay extends PApplet
 		fill(0);
 		for(int i = 0; i < notes.size(); i++) {
 
-			// float x = map(i, 0, notes.size(), (float)(border * 1.5), width - border);
-			Note note = notes.get(i);
-			// text(note.getNote(), x, (float)(border * 1.5));
-			//circle(note.getDuration())
+			float x = map(i, 0, notes.size(), (float)(border * 1.5), width - border);
+			float y = map(i, 0, notes.size() + 10, (float)(border * 1.5) + 25, height - border);
+
+
+			if(mouseX == x && mouseX < x + (width / 2)) { // filling in the colour of the notes
+				
+
+				fill(255, 0, 0);
+			}
+
+			circle(x, height - y, 20);
+			//line(x, y + 200, x , y);
 
 
 		}
