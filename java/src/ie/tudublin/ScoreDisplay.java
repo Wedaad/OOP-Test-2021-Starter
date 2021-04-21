@@ -27,19 +27,10 @@ public class ScoreDisplay extends PApplet
 
 	public void loadScore() { //populating array list
 
-		String[] str = score.split("");
-		
-		for(String s : str) {
-
-			//println(s);
-
-		}
-
 		for(int i = 0; i < score.length(); i++) {
 
 			char c = score.charAt(i);
 			int cDuration = 1;
-
 
 			Note n = new Note(c, cDuration);
 			notes.add(n);
@@ -73,11 +64,23 @@ public class ScoreDisplay extends PApplet
 
 		stroke(0);
 		strokeWeight(2);
-		line(border, border, width - border, border);
-		line(border, border + 25, width - border, border + 25);
-		line(border, border + 50, width - border, border + 50);
-		line(border, border + 75, width - border, border + 75);
-		line(border, border + 100, width - border, border + 100);
+		line(border, (float)(border * 2.5), width - border, (float)(border * 2.5));
+		line(border, (float)(border * 2.5) + 25, width - border, (float)(border * 2.5) + 25);
+		line(border, (float)(border * 2.5) + 50, width - border, (float)(border * 2.5) + 50);
+		line(border, (float)(border * 2.5) + 75, width - border, (float)(border * 2.5) + 75);
+		line(border, (float)(border * 2.5) + 100, width - border, (float)(border * 2.5) + 100);
+
+		fill(0);
+		textSize(20);
+		for(int i = 0; i < notes.size(); i++) {
+
+			float x = map(i, 0, notes.size(), (float)(border * 1.5), width - border);
+			Note note = notes.get(i);
+			text(note.getNote(), x, (float)(border * 1.5));
+
+
+		}
+
 		
 
 	}
@@ -89,15 +92,28 @@ public class ScoreDisplay extends PApplet
 		
 	}
 
+	void drawNotes() {
+		
+		fill(0);
+		for(int i = 0; i < notes.size(); i++) {
+
+			// float x = map(i, 0, notes.size(), (float)(border * 1.5), width - border);
+			Note note = notes.get(i);
+			// text(note.getNote(), x, (float)(border * 1.5));
+			//circle(note.getDuration())
+
+
+		}
+
+	}
+
 	public void draw()
 	{
 		background(255);
 		drawStaveLines();
+		drawNotes();
 
 		
 	}
 
-	void drawNotes()
-	{
-	}
 }
