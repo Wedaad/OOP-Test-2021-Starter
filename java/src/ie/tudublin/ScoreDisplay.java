@@ -114,7 +114,7 @@ public class ScoreDisplay extends PApplet
 			float y = map(i, 0, notes.size() + 10, (float)(border * 1.5) + 25, height - border);
 
 
-			if(mouseX == x && mouseX < x + (width / 2)) { // filling in the colour of the notes
+			if(mouseX > (x + extent) && mouseX < x + (width / 2) && mouseY > y - height / 2 && mouseY < y + height / 2) { // filling in the colour of the notes
 
 
 				fill(255, 0, 0);
